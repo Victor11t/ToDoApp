@@ -1,8 +1,16 @@
-from todo.model.todo import TodoBook
-from todo.view.ui_console import Console
+class Todo:
+    def __init__(self, code_id: int, title: str, description: str):
+        self.code_id = code_id
+        self.title = title
+        self.description = description
+        self.completed = False
+        self.tags = []
 
+    def mark_completed(self) -> None:
 
-if __name__ == "__main__":
-    book: TodoBook = TodoBook()
-    ui: Console = Console(book)
-    ui.app_loop()
+        self.completed = True
+
+    def add_tag(self, tag: str) -> None:
+
+        if tag not in self.tags:
+            self.tags.append(tag)
